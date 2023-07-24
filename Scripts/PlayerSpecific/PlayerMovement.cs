@@ -135,39 +135,6 @@ public class PlayerMovement : MonoBehaviour
         isStunned = false;
     }
 
-    /*
-    IEnumerator Dash()
-    {
-        /*This is for celeset like dashing, need to determine your vertical direction, likely from move.y for vertical
-            //float horz = Input.GetAxisRaw("Horizontal");
-            //float vert = Input.GetAxisRaw("Vertical");
-            //Vector2 dir = new Vector2(horz, vert).normalized;
-            myRigidbody.velocity = new Vector2(dir.x * dashSpeed, dir.y * dashSpeed);
-       
-        Vector2 dashDirection = new Vector2(rawInput.x, rawInput.y);
-        //isDashing = false;
-        float gravity = myRigidbody.gravityScale;
-        Debug.Log("Starting couroutine");
-        //Wall Dash?
-        //Shoot out a ray when dashing, it hits a wall and the player presses the jump button in time
-        if (canDash)
-        {
-            Debug.Log("Move input while dashing" + rawInput.x);
-            //myRigidbody.velocity = new Vector2(7.0f, 0f);
-            //myRigidbody.AddForce(new Vector2(dashDistance * dSirection * -7, 30), ForceMode2D.Impulse);
-
-            Debug.Log(myRigidbody.velocity);
-            myRigidbody.gravityScale = 0;
-
-            myRigidbody.velocity = new Vector2(transform.localScale.x * dashSpeed, 0f);
-        }
-        canDash = false;
-        yield return new WaitForSeconds(0.1f);
-        myRigidbody.gravityScale = gravity;
-        isDashing = false;
-        Debug.Log("Done dashing");
-    } */
-
     private void Dash()
     {
         if (!isDashing)
@@ -188,8 +155,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
     }
-
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
